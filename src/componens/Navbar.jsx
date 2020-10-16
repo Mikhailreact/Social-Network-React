@@ -1,11 +1,24 @@
 import React from 'react';
 
-const Header = () => {
-	return( <header className="header">
-	<img src='https://i.pinimg.com/originals/6b/a4/74/6ba4740df15f169d3d01b297221eefcd.jpg' />
-</header>
-
+const Navbar = () => {
+	return( <nav className="nav">
+			<div>
+				<a href="#">Profile</a>
+			</div>
+			<div>
+				<a href="#">Messages</a>
+			</div>
+			<div>
+				<a href="#">News</a>
+			</div>
+			<div>
+				<a href="#">Music</a>
+			</div>
+			<div>
+				<a href="#">Settings</a>
+			</div>
+		</nav>
 	)
 }
 
-export default Header;
+export default Navbar;
