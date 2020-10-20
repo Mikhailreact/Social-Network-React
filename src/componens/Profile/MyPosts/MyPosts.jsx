@@ -1,7 +1,7 @@
 import React from 'react';
-import s from './Profile.module.css';
+import s from './MyPosts.module.css'
 
-const Profile = () => {
+const MyPosts = () => {
 	return (
 		<div className={s.content}>
 			<div>
@@ -29,4 +29,4 @@ const Profile = () => {
 	)
 }
 
-export default Profile;
+export default MyPosts;
