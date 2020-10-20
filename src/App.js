@@ -1,18 +1,23 @@
 import React from "react";
-import Navbar from "./componens/Navbar";
-import Header from "./componens/Header";
-import Profile from "./componens/Profile";
 import './App.css';
+import Header from "./componens/Header/Header";
+import Navbar from "./componens/Navbar/Navbar";
+import Profile from "./componens/Profile/Profile";
+import Dialogs from "./componens/Dialogs/Dialogs";
 
 const App = () => {
 	return (
 		<div className="app-wrapper">
-			<h1>helllo</h1>
 			<Header />
 			<Navbar />
-			<Profile />
+
+			<div class='app-wrapper-content'>
+				<Dialogs />
+			</div>
+			{/*<Profile />*/}
 		</div>
 	)
 }
 
 export default App;
+

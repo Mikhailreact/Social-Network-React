@@ -1,5 +1,5 @@
 .app-wrapper {
-	margin: 0 auto;
+  margin: 0 auto;
   display: grid;
   width: 1200px;
   grid-template-areas:
@@ -8,5 +8,12 @@
 
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
-    /* grid-gap: 10px*/
+  /* grid-gap: 10px*/
+}
+
+.app-wrapper-content {
+  grid-area: c;
+  background-color: cadetblue;
+  border: solid 1px black ;
+  border-radius: 2px;
 }

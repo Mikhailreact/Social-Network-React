@@ -1,32 +1,20 @@
 import React from 'react';
 import s from './Profile.module.css'
+import MyPosts from "./MyPosts/MyPosts";
 
-const MyPosts = () => {
-	return (
-		<div className={s.content}>
-			<div>
-				<img alt="Картинка!" src="https://www.iexpats.com/wp-content/uploads/2017/11/paradise-island.jpg" />
-			</div>
-			<div>
-				Ava + description
+const Profile = () => {
+    return (
+        <div>
+            <div>
+                <img alt="Картинка!" src="https://www.iexpats.com/wp-content/uploads/2017/11/paradise-island.jpg"/>
             </div>
-			<div>
-				My post
-                <div>
-					New post
-                </div>
-			</div>
-			<div className={s.posts}>
-				<div className={s.item}>
-					post1
+            <div>
+                Ava + description
             </div>
-				<div className={s.item}>
-					post2
-            </div>
-			</div>
-		</div>
+            <MyPosts/>
+        </div>
 
-	)
+    )
 }
 
-export default MyPosts;
+export default Profile;

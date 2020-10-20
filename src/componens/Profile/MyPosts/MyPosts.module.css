@@ -1,10 +1,1 @@
-.content {
-	grid-area: c;
-	background-color: cadetblue;
-	border: solid 1px black ;
-	border-radius: 2px;
- }
 
- .item{
-	color: rgb(245, 241, 0);
-}
