@@ -8,15 +8,22 @@ const MyPosts = (props) => {
     let postsElements =
         props.posts.map( p => <Posts massage={p.message} likesCount={p.likesCount}/>);
 
+    let newPostElement = React.createRef(); //Через рефы обращаемся к value
+
+    let addPost = () => {
+        let text = newPostElement.current.value; //Считываем значение поля ввода !
+        alert(text)
+    }
+
     return (
         <div className={s.postsBock}>
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea></textarea>
+                    <textarea ref={newPostElement} ></textarea>
                 </div>
                 <div>
-                    <button>Ass post</button>
+                    <button onClick={ addPost }>Add post</button>
                 </div>
             </div>
             <div className={s.posts}>
