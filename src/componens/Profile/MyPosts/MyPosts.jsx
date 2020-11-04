@@ -3,25 +3,29 @@ import s from './MyPosts.module.css'
 import Posts from "./Post/Post";
 import Like from "./Post/like";
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+
+    let postsElements =
+        props.posts.map( p => <Posts massage={p.message} likesCount={p.likesCount}/>);
+
     return (
-        <div>
-            My post, New post, Туго но получается, Слав Богу!!!
+        <div className={s.postsBock}>
+            <h3>My posts</h3>
             <div>
-
-                <textarea></textarea>
-                <button>Ass post</button>
-                <button>Remove</button><br/>
-
+                <div>
+                    <textarea></textarea>
+                </div>
+                <div>
+                    <button>Ass post</button>
+                </div>
             </div>
             <div className={s.posts}>
-               <Posts massage='Hi, how are you?' likesCount='0'/>
-               <Posts massage="It's my first post" likesCount='23'/>
+                { postsElements }
             </div>
 
         </div>
 
-)
+    )
 }
 
 export default MyPosts;
