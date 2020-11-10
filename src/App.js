@@ -9,25 +9,30 @@ import Music from "./componens/Music/music";
 import News from "./componens/News/news";
 import Settings from "./componens/Settings/settings";
 
+
 const App = (props) => {
 
-	return (
-		<BrowserRouter>
-			<div className="app-wrapper">
-				<Header/>
-				<Navbar/>
-				<div className='app-wrapper-content'>
-					<Route path="/dialogs"
-						   render={ () => <Dialogs state={props.state.dialogsPage} /> } />
-					<Route path="/profile"
-						   render={ () => <Profile state={props.state.profilePage}/> }/>
-					<Route path="/Music" render={ () =>  <Music/> }/>
-					<Route path="/News" render={ () => <News/> }/>
-					<Route path="/Settings" render={ () => <Settings/> }/>
-				</div>
-			</div>
-		</BrowserRouter>
-	)
+    return (
+        <BrowserRouter>
+            <div className="app-wrapper">
+                <Header/>
+                <Navbar/>
+                <div className='app-wrapper-content'>
+                    <Route path="/dialogs"
+                           render={() => <Dialogs state={props.state.dialogsPage}/>}/>
+                    <Route path="/profile"
+                           render={() => <Profile
+                               profilePage={props.state.profilePage}
+                               addPost={props.addPost}
+                               updateNewPostText={props.updateNewPostText}
+                           />}/>
+                    <Route path="/Music" render={() => <Music/>}/>
+                    <Route path="/News" render={() => <News/>}/>
+                    <Route path="/Settings" render={() => <Settings/>}/>
+                </div>
+            </div>
+        </BrowserRouter>
+    )
 }
 
 export default App;
