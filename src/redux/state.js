@@ -1,4 +1,7 @@
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree = () => {
+    console.log('State is change');
+}
+
 
 let state = {
     profilePage: {
@@ -6,7 +9,7 @@ let state = {
             {id: 2, message: 'It\'s my first post', likesCount: 11},
             {id: 2, message: 'blabla', likesCount: 1100},
             {id: 2, message: 'dada', likesCount: 11},],
-        newPostText: 'it-kamasutra.com',
+        newPostText: '',
 
     },
     dialogsPage: {
@@ -27,7 +30,7 @@ let state = {
     sidebar: {}
 }
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         id: 5,
         message: state.profilePage.newPostText,
@@ -38,10 +41,15 @@ export let addPost = () => {
     rerenderEntireTree(state);
 }
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
     rerenderEntireTree(state);
 }
 
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer; // Мы переприсвоили действие функции и теперь она вызывает запуск rerenderEntireTree в index.js , котороя в свою очередь запускает отррисовку App.
+}
+// observer == addEventListener
+// observer - наблюдатель
 
 export default state;
