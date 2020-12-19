@@ -10,8 +10,8 @@ let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
             <App state={state}
-                 addPost={store.addPost.bind(store)} // bind Бандим методы которые отдаем в глубину
-                 updateNewPostText={store.updateNewPostText.bind(store)}/>
+                 dispatch={store.dispatch.bind(store)} /> // bind Бандим методы которые отдаем в глубину
+
         </BrowserRouter>, document.getElementById('root'));
 }
 

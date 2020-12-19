@@ -25,34 +25,35 @@ let store = {
         },
         sidebar: {}
     },
-    getState(){
-        return this._state;
-    },
     _callSubscriber()  {
         console.log('State is change');
     },
-    addPost() {
-        let newPost = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
+
+    getState(){
+        return this._state;
     },
     subscribe(observer) {
         this._callSubscriber = observer; // Мы переприсвоили действие функции и теперь она вызывает запуск rerenderEntireTree в index.js , котороя в свою очередь запускает отррисовку App.
     },
 
-
+    dispatch(action){ // { type: 'ADD-POST' }
+        if(action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                message: this._state.profilePage.newPostText,
+                likesCount: 0
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state);
+            // Логика по добавлению поста
+        } else if(action.type === 'UPDATE-NEW-POST-TEXT'){
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+            // Логика по обнавлению при каждом вводе
+        }
+    } // Чтобы изменить стейт из внешнего мира мы дергаем диспач
 }
-
-
 
 // observer == addEventListener
 // observer - наблюдатель
